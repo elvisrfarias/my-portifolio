@@ -33,23 +33,26 @@ const dsTags = [
 
 const Main = () => {
   return (
-    <main className='main-container'>
-      <h4>About:</h4>
-      <h1>{'{{ '}<span className="titulo">{`Junior Developer `}</span>{' }} 🤟🏽'}</h1>
+    <div className='container'>
+      <main className='main-container'>
+        <h4>About:</h4>
+        <h1>{'{{ '}<span className="titulo">{`Junior Developer `}</span>{' }} 🤟🏽'}</h1>
 
-      <h4>Languages and Tools:</h4>
-      <div className='tags'>
-        {dsTags.map((item => (
-          <div className='tags-box'>
-            <img src={item.image}></img>
-            <p>{item.text}</p>
-          </div>)))}
-      </div>
+        <h4>Languages and Tools:</h4>
+        <div className='tags'>
+          {dsTags.map((item, index) => (
+            <div className='tags-box' key={index}>
+              <img src={item.image}></img>
+              <p>{item.text}</p>
+            </div>
+          ))}
+        </div>
 
-      <p className='main-paragrafo'>
-        I currently work as a junior software developer at Raster. I got to know many cultures and did many things, I believe that the biggest life lesson I have is that there is no free lunch and that consistency in something you love to do is the big secret to success. It may sound cliché, but it's making me a better person every day.
-      </p>
-    </main>
+        <p className='main-paragrafo'>
+          I currently work as a junior software developer at Raster. I got to know many cultures and did many things, I believe that the biggest life lesson I have is that there is no free lunch and that consistency in something you love to do is the big secret to success. It may sound cliché, but it's making me a better person every day.
+        </p>
+      </main>
+    </div>
   )
 }
 

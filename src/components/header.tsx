@@ -1,7 +1,7 @@
 
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import RedeSocial from './redeSocial'
 
 const Header = () => {
   return (
@@ -15,14 +15,7 @@ const Header = () => {
             <p>Just an eternal apprentice!</p>
           </div>
         </div>
-
-        <div className='box-icones'>
-          <ul>
-            <li><Image src="/image/WhatsApp.svg" alt="Icone WhatsApp" width={24} height={24} /></li>
-            <li><Image src="/image/Linkedin.svg" alt="Icone linkedin" width={24} height={24} /></li>
-          </ul>
-        </div>
-
+        <RedeSocial/>
       </nav>
     </header>
   )
