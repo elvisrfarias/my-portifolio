@@ -5,7 +5,10 @@ import RedeSocial from './redeSocial'
 const Footer = () => {
   return (
     <footer className='footer'>
-      <p className='copy'>© 2023 | Elvis Farias</p>
+      <div>
+        <p className='copy'>© 2023 | Elvis Farias</p>
+      </div>
+
 
       <RedeSocial/>
 

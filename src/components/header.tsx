@@ -10,12 +10,15 @@ const Header = () => {
 
         <div className='box-imagem'>
           <Link href={'/'}> <div className='avatar'></div> </Link>
+
           <div className='info-header'>
             <h2>Elvis Farias</h2>
             <p>Just an eternal apprentice!</p>
           </div>
+
         </div>
         <RedeSocial/>
+
       </nav>
     </header>
   )
