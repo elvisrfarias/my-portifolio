@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Portifolio from './portifolio'
 import { IDataSource } from './types'
 import ConteudoLateral from './conteudoLateral'
-import { getDataSource } from '@/data/DataSource'
+import { getDataSource } from '../data/DataSource'
 import React, { useEffect, useState } from 'react'
 
 const Main = () => {
