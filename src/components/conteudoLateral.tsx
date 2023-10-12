@@ -1,4 +1,5 @@
 import moment from 'moment';
+import Image from 'next/image';
 import React from 'react'
 
 const dsLanguage = [
@@ -70,7 +71,7 @@ const ConteudoLateral = () => {
                         return <>
                             <ul className="features" key={item.id} >
                                 <li style={{ display: "flex", flexDirection: "row", gap: "12px" }}>
-                                    <img src={item.image} style={{ width: "1rem" }} />
+                                    <Image src={item.image} alt={item.text} style={{ width: "1rem" }} />
                                     <span>{item.text}</span>
                                 </li>
                             </ul>

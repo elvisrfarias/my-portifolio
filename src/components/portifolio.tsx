@@ -9,7 +9,7 @@ const Portifolio = () => {
             <blockquote>
                 <p>
                     <strong>Sorry. </strong>
-                    I'm still working on it, I'll add my projects here soon. :)
+                    {`I'm still working on it, I'll add my projects here soon. 😀`}
                 </p>
             </blockquote>
         </>
