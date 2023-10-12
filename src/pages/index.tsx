@@ -1,13 +1,12 @@
-import Home from "@/pages/App";
 import Main from "@/components/main";
-import Portifolio from "@/components/portifolio";
+import Header from "@/components/header";
 
 const Index = () => {
-  return(
-    <Home>
-      <Main/>
-      <Portifolio/>
-    </Home>
+  return (
+    <>
+      <Header />
+      <Main />
+    </>
   )
 }
 

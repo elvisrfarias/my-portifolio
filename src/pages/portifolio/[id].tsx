@@ -1,23 +1,50 @@
 import Home from "@/pages/App";
-import {dsCard} from "@/data/dataSource";
-import {useRouter} from "next/router";
-import {useEffect, useState} from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 const Id = () => {
-  const router = useRouter()
-  const [card, setCard] = useState()
+    const router = useRouter();
+    const [card, setCard] = useState<any>(null);
 
-  useEffect(() => {
-    const getId = +router.query.id
-    if(!getId) return;
-    setCard(getId)
-  }, [router.query]);
+    useEffect(() => {
+        if (!router.query.id) return;
+        let getId: number = Number(router.query.id);
+        console.log(getId)
+        if (!getId) return;
 
-  return (
-    <Home>
-      <h1>Meu card é a {card}</h1>
-    </Home>
-  )
-}
+
+        // Encontrar o cartão correspondente ao ID da rota usando filter
+       // const foundCards: IDataSourceCard[] = dsCard.filter(item => item.id === getId);
+
+        // if (!foundCards) return;
+        // +foundCards
+        // if (foundCards.length >= 0) {
+        //     setCard(foundCards[0]); // Assumindo que não há IDs duplicados
+        // }
+    }, [router.query]);
+
+    return (
+        <Home>
+            {card ? (
+                <div className='card' key={card.id}>
+                    <h3>{card.title}</h3>
+                    <li className='box-image'>
+                        <Image
+                            src={card.imagem}
+                            alt={card.title}
+                            width={200}
+                            height={250}
+                            quality={100}
+                            priority={true}
+                        />
+                    </li>
+                </div>
+            ) : (
+                <p>Carregando...</p>
+            )}
+        </Home>
+    );
+};
 
 export default Id;
