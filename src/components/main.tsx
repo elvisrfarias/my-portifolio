@@ -2,19 +2,33 @@ import Link from 'next/link'
 import Portifolio from './portifolio'
 import { IDataSource } from './types'
 import ConteudoLateral from './conteudoLateral'
-import { getDataSource } from '../data/DataSource'
 import React, { useEffect, useState } from 'react'
 
 const Main = () => {
     const [dataSource, setDataSources] = useState<IDataSource[]>([]);
 
     useEffect(() => {
-        async function verificarDataSource() {
-            const data = await getDataSource();
-            setDataSources(data);
+        const getDataSource = async () => {
+            try {
+                const response = await fetch(`https://api.github.com/users/elvisrfarias/repos`);
+
+                if (response.ok) {
+                    const data: IDataSource[] = await response.json();
+
+                    setDataSources(data);
+                } else {
+                    console.error(`Error fetching data: ${response.status}`);
+
+                    return [];
+                }
+
+            } catch (error) {
+                console.error('An error occurred while fetching data:', error);
+                return [];
+            }
         }
 
-        verificarDataSource();
+        getDataSource()
     }, []);
 
     return (
@@ -36,7 +50,7 @@ const Main = () => {
                     <article id="repositoryGit">
                         <section className="container">
                             <h2>My GitHub repositories</h2>
-                            <p>🗂️I will list my repositories that were created with several different languages.</p>
+                            <p>{`🗂️I will list my repositories that were created with several different languages.`}</p>
                             <p>Some examples of modern CSS include:</p>
                             <ul>
                                 {dataSource.map(item => {
